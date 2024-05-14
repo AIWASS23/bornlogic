@@ -101,30 +101,17 @@ class ArticleTableViewCell: UITableViewCell {
         articleImageView.image = nil
     }
 
-//    func configure(with article: Article){
-//        titleLabel.text = article.title
-//        descriptionLabel.text = article.description
-//        authorLabel.text = article.author
-//
-//        let urlString = article.urlToImage ?? "https://picsum.photos/300?random=\(UUID().uuidString)"
-//        articleImageView.download(from: urlString, contentMode: .scaleAspectFill)
-//    }
-
     func configure(with article: Article) {
-        titleLabel.text = article.title
-        // Verificar se a descrição não é nula ou vazia antes de atribuir ao label
-        if let description = article.description, !description.isEmpty {
-            descriptionLabel.text = description
+        titleLabel.text = article.title.isEmpty ? "No title" : article.title
+        descriptionLabel.text = (article.description?.isEmpty == false) ? article.description : "No description"
+        authorLabel.text = (article.author?.isEmpty ?? true) ? "No author" : article.author
+
+        if let urlString = article.urlToImage {
+            articleImageView.download(from: urlString, contentMode: .scaleAspectFill)
         } else {
-            descriptionLabel.text = "No description"
+            let placeholderImage = UIImage(systemName: "photo")
+            articleImageView.image = placeholderImage
         }
-
-        authorLabel.text = article.author
-
-        let urlString = article.urlToImage ?? "https://picsum.photos/300?random=\(UUID().uuidString)"
-        articleImageView.download(from: urlString, contentMode: .scaleAspectFill)
     }
-
-
 }
 
