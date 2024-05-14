@@ -10,19 +10,19 @@ import SafariServices
 
 class ArticleViewController: UIViewController, UITableViewDelegate {
 
-    private let tableView: UITableView = {
+    internal let tableView: UITableView = {
         let table = UITableView()
         table.register(ArticleTableViewCell.self, forCellReuseIdentifier: ArticleTableViewCell.identifier)
         return table
     }()
 
-    private let viewModel = ResponseViewModel()
-    private var articles = [Article]()
+    internal let viewModel = ResponseViewModel()
+    internal var articles = [Article]()
 
     var dataSource: UITableViewDiffableDataSource<Section, Article>! = nil
     var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Article>! = nil
 
-    private let searchVC = UISearchController(searchResultsController: nil)
+    internal let searchVC = UISearchController(searchResultsController: nil)
 
     var category: String? = nil
     let titleName: String = "Top News"
@@ -70,7 +70,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate {
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
 
-    private func fetchMyCategoryStories() {
+    internal func fetchMyCategoryStories() {
         viewModel.fetchArticlesWithDelegate()
         viewModel.getMyCategoryStories(by: category ?? "General")
     }

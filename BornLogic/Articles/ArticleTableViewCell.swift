@@ -11,14 +11,14 @@ class ArticleTableViewCell: UITableViewCell {
 
     static let identifier = "ArticleTableViewCell"
 
-    private let titleLabel: UILabel = {
+    internal let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 14, weight: .bold)
         return label
     }()
 
-    private let descriptionLabel: UILabel = {
+    internal let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 13, weight: .semibold)
@@ -26,7 +26,7 @@ class ArticleTableViewCell: UITableViewCell {
     }()
 
 
-    private let authorLabel: UILabel = {
+    internal let authorLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 12, weight: .light)

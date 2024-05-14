@@ -72,7 +72,7 @@ class NetworkManagerTest: XCTestCase {
             expectation.fulfill()
         }
 
-        networkManager.getMyUaSportsStories()
+        networkManager.getMySportsStories()
 
         waitForExpectations(timeout: 5, handler: nil)
     }
@@ -88,7 +88,7 @@ class NetworkManagerTest: XCTestCase {
             expectation.fulfill()
         }
 
-        networkManager.getMyUaSportsStories(byPage: page)
+        networkManager.getMySportsStories(byPage: page)
 
         waitForExpectations(timeout: 5, handler: nil)
     }

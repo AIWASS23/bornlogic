@@ -16,8 +16,8 @@ class MenuViewController: UIViewController {
     var category: String? = nil
     let titleName: String = "BornLogic"
 
-    private let viewModel = ResponseViewModel()
-    private var articles = [Article]()
+    internal let viewModel = ResponseViewModel()
+    internal var articles = [Article]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class MenuViewController: UIViewController {
         self.navigationItem.title = titleName
     }
 
-    private func createSearchBar() {
+    internal func createSearchBar() {
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
         search.hidesNavigationBarDuringPresentation = false
@@ -56,7 +56,7 @@ class MenuViewController: UIViewController {
         search.searchBar.placeholder = "Pesquisa"
     }
 
-    private func fetchMyCategoryStories() {
+    internal func fetchMyCategoryStories() {
         viewModel.fetchArticlesWithDelegate()
         viewModel.getMyCategoryStories(by: category ?? "General")
     }
