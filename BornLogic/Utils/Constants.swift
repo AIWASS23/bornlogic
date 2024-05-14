@@ -13,10 +13,10 @@ struct Secret {
 
 struct Constants {
     static let baseURL = "https://newsapi.org/v2"
-    static let topHeadlinesString = "\(Constants.baseURL)/top-headlines?country=br&apiKey=\(Secret.apiKey)"
-    static let topHeadlinesByPageString = "\(Constants.baseURL)/top-headlines?country=br&apiKey=\(Secret.apiKey)&page="
-    static let topHeadlinesByCategoryString = "\(Constants.baseURL)/top-headlines?country=br&apiKey=\(Secret.apiKey)&category="
-    static let sportsString = "\(Constants.baseURL)/top-headlines?country=br&category=sports&apiKey=\(Secret.apiKey)"
-    static let sportsByPageString = "\(Constants.baseURL)/top-headlines?country=br&category=sports&apiKey=\(Secret.apiKey)&page="
+    static let topHeadlinesString = "\(Constants.baseURL)/top-headlines?country=us&apiKey=\(Secret.apiKey)"
+    static let topHeadlinesByPageString = "\(Constants.baseURL)/top-headlines?country=us&apiKey=\(Secret.apiKey)&page="
+    static let topHeadlinesByCategoryString = "\(Constants.baseURL)/top-headlines?country=us&apiKey=\(Secret.apiKey)&category="
+    static let sportsString = "\(Constants.baseURL)/top-headlines?country=us&category=sports&apiKey=\(Secret.apiKey)"
+    static let sportsByPageString = "\(Constants.baseURL)/top-headlines?country=us&category=sports&apiKey=\(Secret.apiKey)&page="
     static let searchURLString =  "\(Constants.baseURL)/everything?sortBy=popularity&apiKey=\(Secret.apiKey)&q="
 }

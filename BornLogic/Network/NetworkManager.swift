@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkManager { // final
+class NetworkManager {
 
     static var shared = NetworkManager()
     var onCompletionData: ((Response) -> Void)?
@@ -24,11 +24,11 @@ class NetworkManager { // final
         getURL(string: Constants.topHeadlinesByPageString + byPage)
     }
 
-    public func getMyUaSportsStories() {
+    public func getMySportsStories() {
         getURL(string: Constants.sportsString)
     }
 
-    public func getMyUaSportsStories(byPage: String) {
+    public func getMySportsStories(byPage: String) {
         getURL(string: Constants.sportsByPageString + byPage)
     }
 
@@ -61,6 +61,7 @@ class NetworkManager { // final
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(Response.self, from: data)
+            print(decodedData)
             return decodedData
         } catch let error as NSError {
             print(error.localizedDescription)
