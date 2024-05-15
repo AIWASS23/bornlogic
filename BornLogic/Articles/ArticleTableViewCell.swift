@@ -4,6 +4,7 @@
 //
 //  Created by Marcelo De Araújo on 14/05/24.
 //
+//
 
 import UIKit
 
@@ -11,14 +12,14 @@ class ArticleTableViewCell: UITableViewCell {
 
     static let identifier = "ArticleTableViewCell"
 
-    internal let titleLabel: UILabel = {
+    internal lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 14, weight: .bold)
         return label
     }()
 
-    internal let descriptionLabel: UILabel = {
+    internal lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 13, weight: .semibold)
@@ -26,14 +27,14 @@ class ArticleTableViewCell: UITableViewCell {
     }()
 
 
-    internal let authorLabel: UILabel = {
+    internal lazy var authorLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 12, weight: .light)
         return label
     }()
 
-    internal let articleImageView: UIImageView = {
+    internal lazy var articleImageView: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 6
         image.layer.masksToBounds = true
@@ -114,4 +115,3 @@ class ArticleTableViewCell: UITableViewCell {
         }
     }
 }
-

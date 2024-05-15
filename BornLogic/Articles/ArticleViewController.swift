@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class ArticleViewController: UIViewController, UITableViewDelegate {
 
@@ -25,7 +24,6 @@ class ArticleViewController: UIViewController, UITableViewDelegate {
     internal let searchVC = UISearchController(searchResultsController: nil)
 
     var category: String? = nil
-    let titleName: String = "Top News"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +37,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate {
         fetchMyCategoryStories()
         createDataSource()
         createSnapshot()
+
+        title = "Artigos"
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,18 +74,21 @@ class ArticleViewController: UIViewController, UITableViewDelegate {
         viewModel.fetchArticlesWithDelegate()
         viewModel.getMyCategoryStories(by: category ?? "General")
     }
+
 }
 
 
 extension ArticleViewController {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let article = articles[indexPath.row]
-        guard let url = URL(string: article.url ?? "https://picsum.photos/200/300") else { return }
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true)
-    }
+            tableView.deselectRow(at: indexPath, animated: true)
+            let article = articles[indexPath.row]
+
+            let articleDetail = NoticieslViewController()
+            articleDetail.article = article
+
+            navigationController?.pushViewController(articleDetail, animated: true)
+        }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150

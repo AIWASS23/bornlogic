@@ -61,7 +61,6 @@ class NetworkManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(Response.self, from: data)
-            print(decodedData)
             return decodedData
         } catch let error as NSError {
             print(error.localizedDescription)
