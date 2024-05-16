@@ -12,6 +12,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate {
     internal let tableView: UITableView = {
         let table = UITableView()
         table.register(ArticleTableViewCell.self, forCellReuseIdentifier: ArticleTableViewCell.identifier)
+        table.accessibilityIdentifier = "tableView"
         return table
     }()
 

@@ -39,12 +39,22 @@ class MenuViewController: UIViewController {
             forCellWithReuseIdentifier: MenuCollectionViewCell.identifier
         )
         menuCollectionView.backgroundColor = UIColor.white
+        menuCollectionView.accessibilityIdentifier = "menuCollectionView"
         self.view.addSubview(menuCollectionView)
     }
 
     func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = titleName
+
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+            navigationController?.navigationBar.standardAppearance = navBarAppearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        } else {
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
     }
 
     internal func createSearchBar() {
@@ -53,7 +63,8 @@ class MenuViewController: UIViewController {
         search.hidesNavigationBarDuringPresentation = false
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.delegate = self
-        search.searchBar.placeholder = "Pesquisa"
+        search.searchBar.searchTextField.attributedPlaceholder =  NSAttributedString.init(string: "Pesquisa", attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
+        search.searchBar.accessibilityIdentifier = "searchBar"
     }
 
     internal func fetchMyCategoryStories() {

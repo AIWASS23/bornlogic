@@ -66,7 +66,7 @@ class DateUtil {
         return result ?? DateUtil.formatter.string(from: input)
     }
 
-    func produceDate(dateString: String, dateFormat: String, timeZone: TimeZone = TimeZone.current) -> Date? {
+    static func produceDate(dateString: String, dateFormat: String, timeZone: TimeZone = TimeZone.current) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         dateFormatter.timeZone = timeZone

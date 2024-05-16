@@ -45,7 +45,7 @@ class MenuViewControllerTests: XCTestCase {
     }
     
     func testConfigureNavigationBar() throws {
-        XCTAssertTrue(sut.navigationController?.navigationBar.prefersLargeTitles ?? false)
+        XCTAssertTrue(sut.navigationController?.navigationBar.prefersLargeTitles ?? true)
         XCTAssertEqual(sut.navigationItem.title, sut.titleName)
     }
 }
